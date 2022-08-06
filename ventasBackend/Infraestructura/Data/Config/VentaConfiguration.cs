@@ -10,14 +10,19 @@ namespace Infraestructura.Data.Config
             builder.Property( v => v.VentaId).IsRequired();
             builder.Property( v => v.Precio).IsRequired().HasMaxLength(100);
             builder.Property( v => v.FechaCompra).IsRequired().HasMaxLength(300);
-            builder.Property( v => v.Cliente).IsRequired().HasMaxLength(50);
-            builder.Property( v => v.Producto).IsRequired().HasMaxLength(30);
-            
-            //TODO RELACIONES
+            builder.Property( v => v.ClienteId).IsRequired().HasMaxLength(50);
+            builder.Property( v => v.ProductoId).IsRequired().HasMaxLength(30);
+            builder.Property( v => v.UsuarioId).IsRequired().HasMaxLength(50);
+
+            //TODO Relaciones
+            builder.HasOne(v => v.Usuario).WithMany()
+            .HasForeignKey(v => v.UsuarioId).OnDelete(DeleteBehavior.NoAction);
+
             builder.HasOne(v => v.Cliente).WithMany()
                    .HasForeignKey(v => v.ClienteId);
+                   
             builder.HasOne(v => v.Producto).WithMany()
-                   .HasForeignKey(v => v.ProductoId);
+                   .HasForeignKey(v => v.ProductoId).OnDelete(DeleteBehavior.NoAction);       
         }
     }
 }

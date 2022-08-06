@@ -57,7 +57,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteCategoria(int id){
             var categ = await _db.Categoria.FindAsync(id);
-            if(id == null) {
+            if(categ == null) {
                 return NotFound();
             }
             _db.Categoria.Remove(categ);

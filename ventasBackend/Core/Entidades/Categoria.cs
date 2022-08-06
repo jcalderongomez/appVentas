@@ -10,6 +10,11 @@ namespace Core.Entidades
                 
         public string NombreCategoria { get; set; }
         
-        public string FechaCaptura{ get; set; }    
+        public string FechaCaptura{ get; set; }  
+
+        public int UsuarioId{ get; set; }
+        
+        [ForeignKey("UsuarioId")]
+        public Usuario Usuario { get; set; }  
     }
 }

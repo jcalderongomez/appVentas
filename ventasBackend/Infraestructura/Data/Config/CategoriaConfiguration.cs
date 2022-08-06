@@ -11,6 +11,11 @@ namespace Infraestructura.Data.Config
             builder.Property( c => c.CategoriaId).IsRequired();
             builder.Property( c => c.NombreCategoria).IsRequired().HasMaxLength(150);
             builder.Property( c => c.FechaCaptura).IsRequired().HasMaxLength(50);
+            builder.Property( c => c.UsuarioId).IsRequired().HasMaxLength(50);
+
+            //TODO Relaciones
+            builder.HasOne(c => c.Usuario).WithMany()
+            .HasForeignKey(c => c.UsuarioId);
         }
     }
 }

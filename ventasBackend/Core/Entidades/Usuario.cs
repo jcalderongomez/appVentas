@@ -10,6 +10,6 @@ namespace Core.Entidades
     public string Apellido { get; set; }
     public string Email { get; set; }
     public string Password  { get; set; }
-    public DataType FechaCaptura { get; set; }
+    public string FechaCaptura { get; set; }
     }
 }

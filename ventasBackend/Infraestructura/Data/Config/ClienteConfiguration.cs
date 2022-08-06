@@ -15,6 +15,11 @@ namespace Infraestructura.Data.Config
             builder.Property( c => c.Email).IsRequired().HasMaxLength(150);
             builder.Property( c => c.Telefono).IsRequired().HasMaxLength(30);
             builder.Property( c => c.Rfc).IsRequired().HasMaxLength(30);
+            builder.Property( c => c.UsuarioId).IsRequired().HasMaxLength(50);
+
+            //TODO Relaciones
+            builder.HasOne(c => c.Usuario).WithMany()
+            .HasForeignKey(c => c.UsuarioId);
         }
     }
 }

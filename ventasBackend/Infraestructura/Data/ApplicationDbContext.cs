@@ -12,19 +12,17 @@ namespace Infraestructura.Data
 
        protected override void OnModelCreating(ModelBuilder modelBuilder){
             modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
-            //modelBuilder.ApplyConfiguration(new ClienteConfiguration());
-            //modelBuilder.ApplyConfiguration(new ImagenConfiguration());
+            modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             modelBuilder.ApplyConfiguration(new ProductoConfiguration());
-            //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-            //modelBuilder.ApplyConfiguration(new VentaConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+            modelBuilder.ApplyConfiguration(new VentaConfiguration());
        }
 
         public DbSet<Categoria> Categoria { get; set; }
-        //public DbSet<Cliente> Cliente { get; set; }
-        //public DbSet<Imagen> Imagen { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Producto> Producto { get; set; }
-        //public DbSet<Usuario> Usuario { get; set; }
-        //public DbSet<Venta> Venta { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Venta> Venta { get; set; }
 
     }
 }

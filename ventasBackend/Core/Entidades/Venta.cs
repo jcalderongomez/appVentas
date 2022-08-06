@@ -7,9 +7,10 @@ namespace Core.Entidades
     {
         [Key]
         public int VentaId { get; set; }
+
         public float Precio { get; set; }
         
-        public DataType FechaCompra { get; set; }
+        public string FechaCompra { get; set; }
         
         public int ClienteId { get; set; }
         
@@ -20,5 +21,10 @@ namespace Core.Entidades
         
         [ForeignKey("ProductoId")]
         public Producto Producto { get; set; }    
+
+        public int UsuarioId {get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public Usuario Usuario { get; set; }
     }
 }
